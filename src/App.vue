@@ -1,22 +1,11 @@
-<script setup>
-import { onMounted, onUnmounted } from "vue";
-import { useCounterStore } from "./stores/counter";
-const counter = useCounterStore();
-
-onMounted(() => {
-  console.log("시작~!");
-});
-onUnmounted(() => {
-  console.log("끝~!");
-});
-</script>
+<script setup></script>
 
 <template>
-  <div>
-    <P>{{ counter.count }}</P>
-    <button @click="counter.decrement()">-</button>
-    <button @click="counter.increment()">+</button>
-  </div>
+  <nav>
+    <router-link to="/">Home</router-link>
+    <router-link to="/myPage">myPage</router-link>
+    <router-view :key="$route.fullPath" />
+  </nav>
 </template>
 
 <style scoped></style>
